@@ -1,0 +1,14 @@
+# Example: NDIR CO2 on an ESP32 with a Sensirion SCD4x (I2C). Credentials via !secret.
+i2c:
+  sda: GPIO8
+  scl: GPIO9
+sensor:
+  - platform: scd4x
+    co2:
+      name: "Living Area CO2"
+    temperature:
+      name: "Living Area SCD4x Temperature"
+    humidity:
+      name: "Living Area SCD4x Humidity"
+    automatic_self_calibration: true   # needs regular exposure to fresh air (~420 ppm)
+    update_interval: 30s

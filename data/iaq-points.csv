@@ -1,0 +1,12 @@
+point,source,type,units,status,notes
+Room temperature,Zigbee sensors (multiple rooms),AI,°C,Live,
+Room humidity,Zigbee sensors (multiple rooms),AI,%RH,Live,
+CO2 (estimated),Zigbee CO2/VOC sensor,AI,ppm,Live - flaky,MOX/eCO2 - trend only; throttle 60 s
+VOC,Zigbee CO2/VOC sensor,AI,index/ppb,Live,
+PM2.5,Air-quality monitor,AI,µg/m³,Live,
+Indoor CO2/humidity/noise,Weather-station indoor module,AI,ppm/%/dB,Live,Vendor cloud
+Outdoor air quality,Public API,AI,index,Live,
+Pollen,Public API,AI,level,Live,
+CO2 (NDIR),ESPHome + NDIR sensor,AI,ppm,Planned,Control-grade
+Occupancy,BLE presence,DI,on/off,Live,From the BLE repo
+Ventilation command,Extract fan / prompt,DO,on/off,Planned,DCV output

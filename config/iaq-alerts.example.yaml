@@ -1,0 +1,25 @@
+automation:
+  - id: iaq_co2_high
+    alias: IAQ - CO2 high
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.living_area_co2
+        above: 1500
+        for: "00:10:00"
+    actions:
+      - action: notify.send_message
+        target: {entity_id: notify.your_phone}
+        data:
+          message: "CO2 {{ states('sensor.living_area_co2') }} ppm - ventilate."
+  - id: iaq_humidity_high
+    alias: IAQ - humidity high (mould risk)
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.bathroom_humidity
+        above: 70
+        for: "00:30:00"
+    actions:
+      - action: notify.send_message
+        target: {entity_id: notify.your_phone}
+        data:
+          message: "Humidity above 70 % for 30 min - run the extract fan."
