@@ -76,6 +76,16 @@ Rules (draft):
 3. **Hysteresis:** stop at CO₂ < 800 ppm / RH < 60 %, with a minimum run time to avoid cycling.
 4. **Heating interlock:** a window prompt while heating is calling is flagged, to save energy (ties into the Evohome data).
 
+### Actuators available now
+DCV doesn't have to wait for mechanical ventilation: the **air purifiers and the purifier/humidifier** already integrated in HA act as IAQ actuators.
+
+| Condition | Action |
+|---|---|
+| PM2.5 > 25 µg/m³ (indoor) | Purifier to high in that room |
+| RH < 35 % (heating season) | Humidifier on to 40 % |
+| RH > 65 % | Humidifier off; extract/ventilate |
+| Outdoor AQ or pollen high | Keep windows shut; purifiers on |
+
 ## 6. Issues and lessons
 - **Flaky Zigbee CO₂/VOC sensor:** stale "failed: lqi" reports, a router-path problem, plus chatty reporting. Fixed with a reporting throttle (60 s); mesh routing is under review.
 - **Estimated CO₂ isn't CO₂:** the main lesson. The sensor's technology determines what it can control.
